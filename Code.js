@@ -187,7 +187,7 @@ Notificaciones = (x,y,z) =>{
                 }
             }else{
                 if (Preg1[1] == undefined){
-                    document.getElementById("Contactos").innerHTML = "<div class='ContenedoresDeMensajes' id='"+x+"' onclick=Actualizar('"+(x)+"')><IMG class='fotos' src='Img/ContactoSinFotoDePerfil.png'></IMG><center><font>"+x+"</font><br><font id='"+x+"Mensaje'>"+z+""+y+"</font></center></div><hr>"+document.getElementById("Contactos").innerHTML;
+                    document.getElementById("Contactos").innerHTML = "<div class='ContenedoresDeMensajes' id='"+x+"' onclick=Actualizar('"+(x)+"')><IMG class='fotos' src='ContactoSinFotoDePerfil.png'></IMG><center><font>"+x+"</font><br><font id='"+x+"Mensaje'>"+z+""+y+"</font></center></div><hr>"+document.getElementById("Contactos").innerHTML;
                 }else if (Preg1[1] == undefined){
                     document.getElementById("Contactos").innerHTML = "<div class='ContenedoresDeMensajes' id='"+x+"' onclick=Actualizar('"+(x)+"')><IMG class='fotos' src='"+colocarIMG+"'></IMG><center><font>"+x+"</font><br><font id='"+x+"Mensaje'>"+z+"Un archivo</font></center></div><hr>"+document.getElementById("Contactos").innerHTML;
                 }
@@ -215,16 +215,16 @@ setInterval(function (){
         if(addEnvio !== ActualizarReg){
             ActualizarReg = addEnvio;
             Echo();
-/*            Push.create("Tienes un nuevo mensaje", {
+            Push.create("Tienes un nuevo mensaje", {
                 body: "Te acaba de llegar un mensaje",
-                icon: '../Img/send.svg',
+                icon: 'send.svg',
                 timeout: 4000,
                 onClick: function () {
                     window.focus();
                     this.close();
                 }
             });
-*/
+
             console.log("Actualizado...")
         }else {
         
@@ -295,7 +295,7 @@ document.getElementById("Bienvenida").style="visibility: hidden;position: absolu
     }, 2000)
     setTimeout(function(){
     document.getElementsByClassName("Contenedor").item(0).style="visibility: visible;position: fixed;"
-    document.getElementById("MensajesLlegados").innerHTML += "<IMG src='Img/send.svg' class='Logo'></IMG>";
+    document.getElementById("MensajesLlegados").innerHTML += "<IMG src='send.svg' class='Logo'></IMG>";
     }, 3000)
 
 ///////////////////////////////////Subir foto De perfil
@@ -420,29 +420,3 @@ document.getElementById("Bienvenida").style="visibility: hidden;position: absolu
                 localStorage.setItem("Login", HoraDeInicioDeSeccion+"||"+a);
             }
         }
-/*
-//identificar dispositivo
-var userAgent = navigator.userAgent || navigator.vendor || window.opera;
-
-if (/bot|crawler|spider|crawling/i.test(userAgent)) {
-	// do nothing
-}
-
-// Windows Phone
-else if (/windows phone/i.test(userAgent)) {
-	window.location.replace("/mobile");
-}
-
-// Android
-else if (/android/i.test(userAgent)) {
-	window.location.replace("/mobile");
-}
-
-// iOS
-else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-	window.location.replace("/mobile");
-}
-
-Ya vinieron las vacacione:v y stefania tiene hambre, bailaste bien stefania :v, pero Sebastian vio nada más 1 baile  :v y por cierto Gracias :v, y Sebastian se salvo de que fabian  , y ayer 17 de diciembre 2019 Sebastián lloro :v. Me va a desbloquear en fin del mes , y yo Sebastian es mi amigo:D y ayer lloro :v pero tu bailas hoy pero no baile :v y sebas tiene novia 7w7xd Y Yo no TeNGO NADa!!!>:v,y seba entro a un server y le robo a todo. Feliz año xd,y WhatsApp  me dio tremendo susto,y me sigue 2 yt en ins
-
-*/
