@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <title>Registro Messenger</title>
+        <link rel="stylesheet" href="css/Style.css">
+        <link rel="shortcut icon" type="image/png" href="Img/send.svg">
+    </head>
+    <body>
+        <div id="Registro">
+            <center>
+                <br><br>
+                <font>Eligue un nombre de usuario</font><br>
+                <input type="text" id="User" onkeypress="return SoloLetras(event);" required><br><br>
+                <font>Eligue un contraseña</font><br>
+                <input type="text" id="Password" onkeypress="return SoloLetras(event);" required><br>
+                <br>
+                <input type="button" value="Listo!..." id="SolucitudDeRegistro"><br>
+                <a href="index.html"><p>Ya tengo un cuenta!</p></a>
+            </center>
+        </div>
+        <script src="https://www.gstatic.com/firebasejs/3.6.2/firebase.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+        <script src="js/CodeRegister.js"></script>
+    </body>
+</html>

@@ -1,0 +1,91 @@
+<html>
+    <head>
+        <title>Messenger</title>
+        <link rel="stylesheet" href="css/Style.css">
+        <link rel="shortcut icon" type="image/png" href="Img/send.svg">
+    </head>
+    <body>
+    <div id="Principal">
+        <div id="Bienvenida">
+            <center>
+             <p id="Name"></p><br>
+            </center>
+        </div>
+    <table class="Contenedor">
+        <tr>
+            <td id="Contactos">
+            </td>
+            <td class="MargenesDeMensaje">
+                <center>
+                <div class="BarraDeInformacion">
+                    <font id="NombreDelUsuario"></font>
+                </div>
+                <div id="MensajesLlegados"></div>
+                <div class="PosicionarBotones">
+                    <table class="ParteDeEnvio">
+                            <tr>
+                                <td>
+                                    <textarea id="EnviarMensaje"></textarea>
+                                </td>
+                                <td>
+                                    <IMG src="Img/send.svg" id="enviar"></IMG>
+                                </td>
+                                <td>
+                                    <IMG src="Img/upload.svg" id="enviarArchivo"></IMG>
+                                </td>
+                            </tr>
+                    </table>
+                    </div>
+                </center>
+            </td>
+        </tr>
+</table>
+<spam id="AgregarUsuario"><font>+</font></spam>
+<spam id="Perfil"><font>!</font></spam>
+        <div id="EnvioDeArchivo">
+                <font>Eligue un archivo</font><br>
+                <center>
+                    <progress value="0" max="100" id="uploaderEnvio1">0%</progress>
+                </center>
+                <input type="file" value="upload" id="fileButtonEnvio1">
+        </div>
+        <div id="InformacionDelPerfil">
+            <div id="Preferencia">
+                <IMG src="Img/link.svg" id="URL"></IMG>
+                <IMG src="Img/upload.svg" id="SUBIDA"></IMG>
+                <IMG src="Img/log-out.svg" id="Salir"></IMG>
+            </div>
+            <div id="MetodoURL">
+                <font>Cual quiere que sea tu perfil</font>
+                <input type="text" id="FotoDePerfil"><br>
+                <button id="FotoDePerfilListo">Ok...</button>
+            </div>
+            <div id="MetodoSubida">
+                <font>Eligue un archivo</font><br>
+                <center><progress value="0" max="100" id="uploader">0%</progress></center>
+                <input type="file" value="upload" id="fileButton">
+             </div>
+        </div>
+        </div>
+        <div id="Segundario">
+                <form>
+                    <center>
+                        <br><br>
+                        <font>Usuario</font><br>
+                        <input type="text" id="User"><br>
+                        <br>
+                        <font>Contraseña</font><br>
+                        <input type="password" id="Password">
+                        <br><br>
+                        <input type="button" id="Confirmar" value="Ok!">
+                        <br>
+                        <a href="Registro.html"><p>Crear una cuenta</p></a>
+                    </center>
+                </form>
+        </div>
+        <script src="https://www.gstatic.com/firebasejs/3.6.2/firebase.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+        <script src="js/Push.js"></script>
+        <script src="js/Code.js"></script>
+    </body>
+</html>
