@@ -420,3 +420,14 @@ document.getElementById("Bienvenida").style="visibility: hidden;position: absolu
                 localStorage.setItem("Login", HoraDeInicioDeSeccion+"||"+a);
             }
         }
+function PruebaDeNotificaciones(){
+Push.create("Tienes un nuevo mensaje", {
+                body: "Te acaba de llegar un mensaje",
+                icon: '../Img/send.svg',
+                timeout: 4000,
+                onClick: function () {
+                    window.focus();
+                    this.close();
+                }
+            });
+}
