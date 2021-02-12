@@ -423,7 +423,7 @@ document.getElementById("Bienvenida").style="visibility: hidden;position: absolu
 function PruebaDeNotificaciones(){
 Push.create("Tienes un nuevo mensaje", {
                 body: "Te acaba de llegar un mensaje",
-                icon: '../Img/send.svg',
+                icon: 'send.svg',
                 timeout: 4000,
                 onClick: function () {
                     window.focus();
