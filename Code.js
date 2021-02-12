@@ -215,14 +215,7 @@ setInterval(function (){
         if(addEnvio !== ActualizarReg){
             ActualizarReg = addEnvio;
             Echo();
-            Push.create("Tienes un nuevo mensaje", {
-                body: "Te acaba de llegar un mensaje",
-                icon: 'send.svg',
-                timeout: 4000,
-                onClick: function () {
-                    window.focus();
-                    this.close();
-                }
+            PruebaDeNotificaciones();
             });
 
             console.log("Actualizado...")
@@ -423,7 +416,7 @@ document.getElementById("Bienvenida").style="visibility: hidden;position: absolu
 function PruebaDeNotificaciones(){
 Push.create("Tienes un nuevo mensaje", {
                 body: "Te acaba de llegar un mensaje",
-                icon: '/send.svg',
+                icon: 'send.svg',
                 timeout: 4000,
                 onClick: function () {
                     window.focus();
