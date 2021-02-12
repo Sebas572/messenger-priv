@@ -216,8 +216,6 @@ setInterval(function (){
             ActualizarReg = addEnvio;
             Echo();
             PruebaDeNotificaciones();
-            });
-
             console.log("Actualizado...")
         }else {
         
