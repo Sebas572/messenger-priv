@@ -168,8 +168,10 @@ Notificaciones = (x,y,z) =>{
     if (document.getElementById(x) !== null){
                 if (Preg1[1] == undefined){
                     document.getElementById(x+"Mensaje").innerHTML = z+""+y+"";
+                    PruebaDeNotificaciones();
                 }else if (Preg1[1] !== undefined){
                     document.getElementById(x+"Mensaje").innerHTML = ""+z+" Un archivo";
+                    PruebaDeNotificaciones();
                 }
     }else{
         Imagenes = addFotos.split(x+":");
@@ -215,7 +217,6 @@ setInterval(function (){
         if(addEnvio !== ActualizarReg){
             ActualizarReg = addEnvio;
             Echo();
-            PruebaDeNotificaciones();
             console.log("Actualizado...")
         }else {
         
