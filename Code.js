@@ -186,14 +186,6 @@ Notificaciones = (x,y,z) =>{
                     });
                 }else if (Preg1[1] !== undefined){
                     document.getElementById(x+"Mensaje").innerHTML = ""+z+" Un archivo";
-                         Push.create("Tienes un nuevo mensaje", {
-                        body: "Te acaba de llegar un mensaje",
-                        icon: 'send.svg',
-                        timeout: 4000,
-                        onClick: function () {
-                            window.focus();
-                            this.close();
-                        }
                     });
            }
     }else{
@@ -240,16 +232,6 @@ setInterval(function (){
         if(addEnvio !== ActualizarReg){
             ActualizarReg = addEnvio;
             Echo();
-            Push.create("Tienes un nuevo mensaje", {
-                body: "Te acaba de llegar un mensaje",
-                icon: 'send.svg',
-                timeout: 4000,
-                onClick: function () {
-                    window.focus();
-                    this.close();
-                }
-            });
-
             console.log("Actualizado...")
         }else {
         
