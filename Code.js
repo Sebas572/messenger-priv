@@ -186,7 +186,7 @@ Notificaciones = (x,y,z) =>{
 				    this.close();
 				}
 			    });
-		    }else {    }
+		    }else {ActualizadorAnterior = "";}
                 }else if (Preg1[1] !== undefined){
                     document.getElementById(x+"Mensaje").innerHTML = ""+z+" Un archivo";
            }
