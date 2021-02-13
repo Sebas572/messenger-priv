@@ -176,16 +176,16 @@ Notificaciones = (x,y,z) =>{
                     ObtenerFotoDePerfil = ObtenerFotoDePerfil[1].split('"');
                     document.getElementById("MensajesNuevos").innerHTML =  "<div class='ContenedoresDeMensajes' id='"+x+"' onclick=Actualizar('"+(x)+"')><IMG class='fotos' src='"+ObtenerFotoDePerfil[0]+"'></IMG><center><font>"+x+"</font><br><font id='"+x+"Mensaje'>"+z+""+y+"</font></center></div>"
                     if(document.getElementById("MensajesNuevos").innerHTML !== ActualizadorAnterior){
-		     ActualizadorAnterior = document.getElementById("MensajesNuevos").innerHTML;
-		     Push.create("Tienes un nuevo mensaje", {
-                        body: "Te acaba de llegar un mensaje",
-                        icon: 'send.svg',
-                        timeout: 4000,
-                        onClick: function () {
-                            window.focus();
-                            this.close();
-                        }
-                    });
+			     ActualizadorAnterior = document.getElementById("MensajesNuevos").innerHTML;
+			     Push.create("Tienes un nuevo mensaje", {
+				body: "Te acaba de llegar un mensaje",
+				icon: 'send.svg',
+				timeout: 4000,
+				onClick: function () {
+				    window.focus();
+				    this.close();
+				}
+			    });
 		    }else {    }
                 }else if (Preg1[1] !== undefined){
                     document.getElementById(x+"Mensaje").innerHTML = ""+z+" Un archivo";
