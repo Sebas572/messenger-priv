@@ -6,7 +6,7 @@
       messagingSenderId: "G-2QFL6Z2FL0"
     };
     firebase.initializeApp(config);
-    let Saber;let array;let Recivido;let i = 1;let addEnvio;let NameUser = "";let ActualizarReg;let Hours;/*dato curioso sabemos quien mando el mensaje con Hours[1]*/let Estatus = "";let Actualizar;let addFotos;let AbrirCerrar = 0;let AbrirCerrar1 = 0;let xF = 0;let EnviarDatos;
+    let Saber;let array;let Recivido;let i = 1;let addEnvio;let NameUser = "";let ActualizarReg;let Hours;/*dato curioso sabemos quien mando el mensaje con Hours[1]*/let Estatus = "";let Actualizar;let addFotos;let AbrirCerrar = 0;let AbrirCerrar1 = 0;let xF = 0;let EnviarDatos;let ActualizadorAnterior;
     var dbRef = firebase.database().ref().child("Informacion");
     dbRef.on('value', snap => Seguridad = snap.val().Information);
     document.oncontextmenu = function(){return false}
@@ -175,7 +175,9 @@ Notificaciones = (x,y,z) =>{
                     ObtenerFotoDePerfil = ObtenerFotoDePerfil.split('src="');
                     ObtenerFotoDePerfil = ObtenerFotoDePerfil[1].split('"');
                     document.getElementById("MensajesNuevos").innerHTML =  "<div class='ContenedoresDeMensajes' id='"+x+"' onclick=Actualizar('"+(x)+"')><IMG class='fotos' src='"+ObtenerFotoDePerfil[0]+"'></IMG><center><font>"+x+"</font><br><font id='"+x+"Mensaje'>"+z+""+y+"</font></center></div>"
-                    Push.create("Tienes un nuevo mensaje", {
+                    if(document.getElementById("MensajesNuevos").innerHTML !== ActualizadorAnterior){
+		     ActualizadorAnterior = document.getElementById("MensajesNuevos").innerHTML;
+		     Push.create("Tienes un nuevo mensaje", {
                         body: "Te acaba de llegar un mensaje",
                         icon: 'send.svg',
                         timeout: 4000,
@@ -184,6 +186,7 @@ Notificaciones = (x,y,z) =>{
                             this.close();
                         }
                     });
+		    }else {    }
                 }else if (Preg1[1] !== undefined){
                     document.getElementById(x+"Mensaje").innerHTML = ""+z+" Un archivo";
            }
