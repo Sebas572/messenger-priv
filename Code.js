@@ -175,7 +175,7 @@ Notificaciones = (x,y,z) =>{
                     ObtenerFotoDePerfil = ObtenerFotoDePerfil.split('src="');
                     ObtenerFotoDePerfil = ObtenerFotoDePerfil[1].split('"');
                     document.getElementById("MensajesNuevos").innerHTML =  "<div class='ContenedoresDeMensajes' id='"+x+"' onclick=Actualizar('"+(x)+"')><IMG class='fotos' src='"+ObtenerFotoDePerfil[0]+"'></IMG><center><font>"+x+"</font><br><font id='"+x+"Mensaje'>"+z+""+y+"</font></center></div>"
-                    if(document.getElementById("MensajesNuevos").innerHTML !== ActualizadorAnterior){
+                    if((document.getElementById("MensajesNuevos").innerHTML !== ActualizadorAnterior)&&(ActualizadorAnterior !== undefined)){
 			     ActualizadorAnterior = document.getElementById("MensajesNuevos").innerHTML;
 			     Push.create("Tienes un nuevo mensaje", {
 				body: "Te acaba de llegar un mensaje",
