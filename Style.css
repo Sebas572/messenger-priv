@@ -9,8 +9,7 @@ background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/s
 }
 #EnviarMensaje {
     margin: 5px;
-    max-width: 100%;
-    width: 500px;
+    width: 400px;
     height: 58px;
 }
 p {
@@ -40,14 +39,18 @@ font {
     visibility: hidden;
 }
 #Contactos {
+    top: 40px;
     border-radius: 15px 15px 15px 15px;
     min-width: 300px;
     width: 30%;
-    height: 98%;
+    height: 88%;
     background: rgb(255, 255, 255, 0.3);
     vertical-align: top;
     padding-top: 10px;
     overflow-x: auto;
+}
+#MensajesNuevos div{
+    height: max-content;
 }
 .ContenedoresDeMensajes {
     max-width: 400px;
@@ -152,12 +155,18 @@ hr {
     border-radius: 15px 15px 15px 15px;
     margin-left: auto;
 }
+.Usuario1:hover {
+    transform: scale(1.025);
+}
 .Usuario1IMG {
     background: #8aff88;
     width: max-content;
     border-radius: 15px 15px 15px 15px;
     padding-right: 10px;
     margin-left: auto;
+}
+.Usuario1IMG:hover {
+    transform: scale(1.025);
 }
 .Usuario2 {
     background: #41f6ff;
@@ -206,7 +215,7 @@ hr {
     left: 30%;
     width: 70%;
     max-width: 600px;
-    height: 20%;
+    height: 130px;
     background: white;
     border: 1px solid black;
     border-radius: 15px;
@@ -317,4 +326,29 @@ background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/s
     background: #60ff60;
     border: none;
     border-radius: 10px;
+}
+#EliminarSiONo {
+    visibility: hidden;
+    position: fixed;
+    top: calc(50% - 200px/2);
+    left: calc(50% - 300px/2);
+    width: 300px;
+    height: 200px;
+    background: white;
+    border-radius: 15px;
+    padding: 10px;
+    box-shadow: 9px 6px 20px 0px #131313b5;
+}
+#EliminarSiONo font {
+    font-size: 20px;
+}
+#EliminarSiONo button {
+    background: #ff1b1b;
+    font-size: 20px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+}
+#EliminarSiONo button:hover {
+    transform: scale(1.1);
 }
