@@ -186,7 +186,6 @@ Notificaciones = (x,y,z) =>{
                     });
                 }else if (Preg1[1] !== undefined){
                     document.getElementById(x+"Mensaje").innerHTML = ""+z+" Un archivo";
-                    });
            }
     }else{
         Imagenes = addFotos.split(x+":");
