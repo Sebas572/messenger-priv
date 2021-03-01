@@ -6,25 +6,22 @@ var config = {
       messagingSenderId: "G-2QFL6Z2FL0"
     };
     firebase.initializeApp(config);
-    let Saber;let array;let Recivido;let i = 1;let addEnvio;let NameUser = "";let ActualizarReg;let Hours;/*dato curioso sabemos quien mando el mensaje con Hours[1]*/let Estatus = "";let Actualizar;let addFotos;let AbrirCerrar = 0;let AbrirCerrar1 = 0;let xF = 0;let EnviarDatos;let ia = 0;let PantallaDeCargaInclementada = "true";
+    let Saber;let array;let Recivido;let i = 1;let addEnvio;let NameUser = "";let ActualizarReg;let Hours;let Estatus = "";let Actualizar;let addFotos;let AbrirCerrar = 0;let AbrirCerrar1 = 0;let xF = 0;let EnviarDatos;let ia = 0;let PantallaDeCargaInclementada = "true";
     var dbRef = firebase.database().ref().child("Informacion");
     dbRef.on('value', snap => Seguridad = snap.val().Information);
     dbRef.on('value', snap => addEnvio = snap.val().Mensaje);
     document.oncontextmenu = function(){return false}
     Comenzar = a =>{
     dbRef.on('value', snap => addFotos = snap.val().LinkDeFotos);
-//solucitar informacion necesaria para enviar un mensaje    
     document.getElementById("enviar").addEventListener("click", function(){
         Mensaje =  document.getElementById("EnviarMensaje").value;
         Envio(Estatus, Mensaje)
         document.getElementById("EnviarMensaje").value = "";
     })
-//Salir de la cuenta
     document.getElementById("Salir").addEventListener("click", function(){
         localStorage.setItem("Login", "");
         location.reload();
     })
-//Agregar Usuario
     document.getElementById("AgregarUsuario").addEventListener("click", function(){
         Estatus = prompt("Nombre al usuario que quieres escribirle");
         Seguridad = Seguridad.split(Estatus+":")
@@ -38,8 +35,6 @@ var config = {
             })        
         }
     })
-
-//enviar el mensaje
     Envio = (X, Y) => {
         Hora =  new Date;
         Hora = ""+Hora.getDay()+":"+Hora.getHours()+":"+Hora.getMinutes()+"";
@@ -56,8 +51,6 @@ var config = {
             })
         }
     }
-
-//resivir el mensaje
 Echo = a =>{
     document.getElementById("MensajesLlegados").innerHTML ="";
     document.getElementById("NombreDelUsuario").innerHTML = Estatus;
@@ -81,12 +74,10 @@ Echo = a =>{
             if(addEnvio !== undefined){
                 SeparadorDeMensajes = addEnvio.split("[");
                 if(SeparadorDeMensajes[i] !== undefined){
-                    //tomamos toda la informacion necesaria
                     SeparadorDeMensajes = SeparadorDeMensajes[i].split("]");
                     SeparadorDeMensajes = SeparadorDeMensajes[0].split(NameUser+":");
                     SeparadorDeMensajesMios = SeparadorDeMensajes[0].split(Estatus+":");
                     IdentificadorPorNombre = SeparadorDeMensajes[0].split(":");
-                    //preguntas para mostrar los mensajes del usuario de la cuenta
                     if(SeparadorDeMensajesMios[1] !== undefined){
                         SeparadorDeMensajesMios = SeparadorDeMensajesMios[1].split("(%$(&^");
                         if(SeparadorDeMensajesMios[1] == NameUser){
@@ -124,13 +115,11 @@ Echo = a =>{
                     }else{
                     
                     }
-                    //preguntas para mostrar los mensaje de la persona del otro lado
                     if(SeparadorDeMensajes[1] !== undefined){
                         SeparadorDeMensajes = SeparadorDeMensajes[1].split("*%&^");
                         Hours = SeparadorDeMensajes[1].split("*%&^");
                         Hours = Hours[0].split("(%$(&^");
                         Notificaciones(Hours[1], SeparadorDeMensajes[0], 1);
-                        ////Notificaciones(Hours[1], SeparadorDeMensajes[0], 1);
                         if(Estatus == Hours[1]){
                             PreguntarSiEsUnArchivo2 = SeparadorDeMensajes[0].split("*#&$^^");
                             if(PreguntarSiEsUnArchivo2[1]==undefined){
@@ -167,7 +156,6 @@ Echo = a =>{
             }
     }
 }
-//Notificar
 Notificaciones = (x,y,z) =>{
         Preg1 = y.split("*#&$^^");
     if(z == 0){
@@ -217,11 +205,9 @@ Notificaciones = (x,y,z) =>{
 SeguroQueQuieresEliminarElChat = a =>{
     document.getElementById("EliminarSiONoChat").style="visibility: visible;";
     document.getElementById("EliminarAceptar1").addEventListener("click", function(){
-        //for(i=0;1<1000;i++){
           while(addEnvio.split("["+a)[0] !== undefined){
             EliminarChat(a);
           }
-        //}
     })
     document.getElementById("EliminarRechazar1").addEventListener("click",function (){
         document.getElementById("EliminarSiONoChat").style="visibility: hidden;";
@@ -229,7 +215,6 @@ SeguroQueQuieresEliminarElChat = a =>{
 }
 EliminarChat = a =>{
     for(ia=1;ia<100;ia++){
-        //a = nombre del usuario que le llego el mensaje
         if(addEnvio.split("["+a)[ia] !== undefined){
         BorrarMensajes = addEnvio.split("["+a);
         array = "["+a+BorrarMensajes[ia].split("]")[0]+"]";
@@ -252,7 +237,6 @@ EliminarChat = a =>{
             document.getElementById("EliminarSiONoChat").style="visibility: hidden;";
             break
         }
-        //EliminarChatEnvio(SepararParaEleminar[0], SepararParaEleminar[1]);
             continue
     }
 }
@@ -278,14 +262,12 @@ LaImagenEs = a =>{
             return Respuesta[xF-1];
         }
     }
-////return Respuesta[];
 }
 Actualizar = a =>{
             Ir = document.getElementById(a).id;
             Estatus = ""+Ir+"";
             Echo();  
 }
-//Mandar a actualizar
 setInterval(function (){
         if((addEnvio !== undefined)&&(PantallaDeCargaInclementada === "true")){
             PantallaDeCarga();
@@ -298,7 +280,6 @@ setInterval(function (){
         
         }
 }, 1000)
-//Configuracion de Usuario
     document.getElementById("Perfil").addEventListener("click", function(){
         if(AbrirCerrar == 0){
         document.getElementById("InformacionDelPerfil").style = "visibility: visible;"
@@ -330,7 +311,6 @@ setInterval(function (){
         }
     })
 
-//apartado para eleguir subir foto o usar URL tambien conocido como link
 document.getElementById("URL").addEventListener("click", function(){
     document.getElementById("MetodoURL").style = "visibility: visible;"
     document.getElementById("Preferencia").style = "visibility: hidden;position: absolute;"
@@ -361,40 +341,22 @@ document.getElementById("enviarArchivo").addEventListener("click", function() {
         console.log("Error 004");
     }
 })
-        
-///////////////////////////////////Subir foto De perfil
-
-      // Obtener Elementos
       var uploader = document.getElementById('uploader');
       var fileButton = document.getElementById('fileButton');
       var Dowloand;
-      // Vigilar selección archivo
       fileButton.addEventListener('change', function(e) {
-        //Obtener archivo
         var file = e.target.files[0];
-
-        // Crear un storage ref
         var storageRef = firebase.storage().ref('Archivos/' + file.name);
-
-
-        // Subir archivo
         var task = storageRef.put(file);
-
-        // Actualizar barra progreso
         task.on('state_changed',
 
           function progress(snapshot) {
             var percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
             uploader.value = percentage;
             Dowloand = task.snapshot.downloadURL;
-
           },
-
           function error(err) {
-
           },
-
-
           function complete() {
             Swal.fire({
               icon: 'success',
@@ -406,40 +368,21 @@ document.getElementById("enviarArchivo").addEventListener("click", function() {
           }
           )
       });
-
-///////////////////////////////EnvioDeArchivo
-
-      // Obtener Elementos
       var uploader1 = document.getElementById('uploaderEnvio1');
       var fileButton1 = document.getElementById('fileButtonEnvio1');
       var Dowloand;
-      // Vigilar selección archivo
       fileButton1.addEventListener('change', function(e) {
-        //Obtener archivo
         var file = e.target.files[0];
-
-        // Crear un storage ref
         var storageRef = firebase.storage().ref('Archivos/' + file.name);
-
-
-        // Subir archivo
         var task = storageRef.put(file);
-
-        // Actualizar barra progreso
         task.on('state_changed',
-
           function progress(snapshot) {
             var percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
             uploader1.value = percentage;
             Dowloand = task.snapshot.downloadURL;
-
           },
-
           function error(err) {
-
           },
-
-
           function complete() {
             document.getElementById("EnvioDeArchivo").style = "visibility: hidden;";
             Swal.fire({
@@ -508,34 +451,21 @@ document.getElementById("EliminarAceptar").addEventListener("click", function(){
 document.getElementById("EliminarRechazar").addEventListener("click", function(){
     document.getElementById("EliminarSiONo").style = "visibility: hidden;";
 })
-
-//identificar dispositivo
 var userAgent = navigator.userAgent || navigator.vendor || window.opera;
 
 if (/bot|crawler|spider|crawling/i.test(userAgent)) {
-	// do nothing
 }
-
-// Windows Phone
 else if (/windows phone/i.test(userAgent)) {
-	//window.location.replace("/mobile");
     alert("No hay soporte para dispositivos moviles, por los momentos");
 }
-
-// Android
 else if (/android/i.test(userAgent)) {
-	//window.location.replace("/mobile");
     alert("No hay soporte para dispositivos moviles, por los momentos");
 }
-
-// iOS
 else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-	//window.location.replace("/mobile");
     alert("No hay soporte para dispositivos moviles, por los momentos");
 }
 
 function PantallaDeCarga(){
-////Cargando
         setTimeout(function (){
             document.getElementById("CargandoPonerLogo").style = "transform: rotateX(45deg);";
             document.getElementById("Name").innerHTML = "<font>Bienvenido nuevamente </font><br><b><font>"+NameUser+"</font></b>";
