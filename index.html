@@ -1,16 +1,11 @@
 <html>
     <head>
         <title>Messenger</title>
-        <link rel="stylesheet" href="Style.css">
-        <link rel="shortcut icon" type="image/png" href="send.svg">
+        <link rel="stylesheet" href="css/Style.css">
+        <link rel="shortcut icon" type="image/png" href="Img/send.svg">
     </head>
     <body>
     <div id="Principal">
-        <div id="Bienvenida">
-            <center>
-             <p id="Name"></p><br>
-            </center>
-        </div>
     <table class="Contenedor">
         <tr>
             <td id="MensajesNuevos">
@@ -32,10 +27,10 @@
                                     <textarea id="EnviarMensaje"></textarea>
                                 </td>
                                 <td>
-                                    <IMG src="send.svg" id="enviar"></IMG>
+                                    <IMG src="Img/send.svg" id="enviar"></IMG>
                                 </td>
                                 <td>
-                                    <IMG src="upload.svg" id="enviarArchivo"></IMG>
+                                    <IMG src="Img/upload.svg" id="enviarArchivo"></IMG>
                                 </td>
                             </tr>
                     </table>
@@ -55,9 +50,9 @@
         </div>
         <div id="InformacionDelPerfil">
             <div id="Preferencia">
-                <IMG src="link.svg" id="URL"></IMG>
-                <IMG src="upload.svg" id="SUBIDA"></IMG>
-                <IMG src="log-out.svg" id="Salir"></IMG>
+                <IMG src="Img/link.svg" id="URL"></IMG>
+                <IMG src="Img/upload.svg" id="SUBIDA"></IMG>
+                <IMG src="Img/log-out.svg" id="Salir"></IMG>
             </div>
             <div id="MetodoURL">
                 <font>Cual quiere que sea tu perfil</font>
@@ -102,9 +97,30 @@
                 </table>
             </center>
         </div>
+        <div id="EliminarSiONoChat">
+            <center>
+                <font>Estas seguro que quieres eliminar el chat?</font><br><br>
+                <table>
+                    <tr>
+                        <td>
+                            <button id="EliminarAceptar1">Aceptar</button>
+                        </td>
+                        <td>
+                            <button id="EliminarRechazar1">Rechazar</button>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+        </div>
+        <spam id="Cargando">
+            <center>
+                <IMG src="Img/send.svg" id="CargandoPonerLogo"></IMG><br>
+                <p id="Name"></p>
+            </center>
+        </spam>
         <script src="https://www.gstatic.com/firebasejs/3.6.2/firebase.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-        <script src="Push.js"></script>
-        <script src="Code.js"></script>
+        <script src="js/Push.js"></script>
+        <script src="js/Code.js"></script>
     </body>
 </html>
