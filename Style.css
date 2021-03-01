@@ -1,13 +1,14 @@
 body {
     width: 98%;
     height: 98%;
-background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='100%' height='100%' preserveAspectRatio='none' viewBox='0 0 1440 560'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1036%26quot%3b)' fill='none'%3e%3crect width='100%' height='100%' x='0' y='0' fill='rgba(34%2c 70%2c 107%2c 1)'%3e%3c/rect%3e%3cpath d='M0%2c585.203C106.979%2c598.774%2c198.197%2c504.35%2c276.43%2c430.133C345.001%2c365.083%2c363.671%2c268.602%2c416.413%2c190.169C482.869%2c91.341%2c618.63%2c28.816%2c626.213%2c-90.036C633.767%2c-208.442%2c550.184%2c-324.124%2c453.622%2c-393.066C363.013%2c-457.758%2c237.774%2c-414.679%2c130.383%2c-444.043C25.946%2c-472.599%2c-58.263%2c-579.875%2c-165.088%2c-562.239C-272.696%2c-544.474%2c-341.203%2c-439.872%2c-409.577%2c-354.9C-475.837%2c-272.556%2c-550.396%2c-185.225%2c-553.471%2c-79.577C-556.463%2c23.235%2c-485.465%2c110.736%2c-425.562%2c194.348C-374.801%2c265.199%2c-298.946%2c306.327%2c-234.754%2c365.284C-154.151%2c439.314%2c-108.571%2c571.43%2c0%2c585.203' fill='%23162e46'%3e%3c/path%3e%3cpath d='M1440 1129.5259999999998C1551.461 1151.4859999999999 1672.058 1131.173 1768.8690000000001 1071.73 1866.542 1011.758 1946.819 914.7529999999999 1971.925 802.922 1995.583 697.542 1914.9940000000001 600.814 1898.554 494.07 1882.349 388.851 1924.701 276.769 1876.29 181.95299999999997 1822.565 76.72899999999998 1731.989-15.272000000000048 1619.715-52.05499999999995 1506.301-89.21100000000001 1373.622-76.92600000000004 1270.744-16.43399999999997 1174.587 40.105999999999995 1159.425 169.577 1091.85 258.327 1030.132 339.384 910.199 380.975 891.848 481.188 873.466 581.568 946.232 674.172 999.7919999999999 761.0360000000001 1047.908 839.071 1114.752 897.863 1185.051 956.7080000000001 1265.405 1023.97 1337.186 1109.27 1440 1129.5259999999998' fill='%232e5f91'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1036'%3e%3crect width='100%' height='100%' fill='white'%3e%3c/rect%3e%3c/mask%3e%3c/defs%3e%3c/svg%3e");
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='100%' height='100%' preserveAspectRatio='none' viewBox='0 0 1440 560'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1036%26quot%3b)' fill='none'%3e%3crect width='100%' height='100%' x='0' y='0' fill='rgba(34%2c 70%2c 107%2c 1)'%3e%3c/rect%3e%3cpath d='M0%2c585.203C106.979%2c598.774%2c198.197%2c504.35%2c276.43%2c430.133C345.001%2c365.083%2c363.671%2c268.602%2c416.413%2c190.169C482.869%2c91.341%2c618.63%2c28.816%2c626.213%2c-90.036C633.767%2c-208.442%2c550.184%2c-324.124%2c453.622%2c-393.066C363.013%2c-457.758%2c237.774%2c-414.679%2c130.383%2c-444.043C25.946%2c-472.599%2c-58.263%2c-579.875%2c-165.088%2c-562.239C-272.696%2c-544.474%2c-341.203%2c-439.872%2c-409.577%2c-354.9C-475.837%2c-272.556%2c-550.396%2c-185.225%2c-553.471%2c-79.577C-556.463%2c23.235%2c-485.465%2c110.736%2c-425.562%2c194.348C-374.801%2c265.199%2c-298.946%2c306.327%2c-234.754%2c365.284C-154.151%2c439.314%2c-108.571%2c571.43%2c0%2c585.203' fill='%23162e46'%3e%3c/path%3e%3cpath d='M1440 1129.5259999999998C1551.461 1151.4859999999999 1672.058 1131.173 1768.8690000000001 1071.73 1866.542 1011.758 1946.819 914.7529999999999 1971.925 802.922 1995.583 697.542 1914.9940000000001 600.814 1898.554 494.07 1882.349 388.851 1924.701 276.769 1876.29 181.95299999999997 1822.565 76.72899999999998 1731.989-15.272000000000048 1619.715-52.05499999999995 1506.301-89.21100000000001 1373.622-76.92600000000004 1270.744-16.43399999999997 1174.587 40.105999999999995 1159.425 169.577 1091.85 258.327 1030.132 339.384 910.199 380.975 891.848 481.188 873.466 581.568 946.232 674.172 999.7919999999999 761.0360000000001 1047.908 839.071 1114.752 897.863 1185.051 956.7080000000001 1265.405 1023.97 1337.186 1109.27 1440 1129.5259999999998' fill='%232e5f91'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1036'%3e%3crect width='100%' height='100%' fill='white'%3e%3c/rect%3e%3c/mask%3e%3c/defs%3e%3c/svg%3e");
     font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, sans-serif;
     margin: 5px;
     overflow-x: hidden;
     overflow-y: hidden;
 }
 #EnviarMensaje {
+    border-radius: 15px;
     margin: 5px;
     width: 400px;
     height: 58px;
@@ -22,10 +23,10 @@ font {
 }
 #Name {
     transition: 1s;
-    font-size: 50px;
+    font-size: 30px;
     position: absolute;
-    top: 25%;
-    left: calc(50% - 539px/2);
+    top: 75%;
+    left: calc(50% - 317.8px/2);
 }
 .Hora {
     font-size: 10px;
@@ -53,10 +54,10 @@ font {
     height: max-content;
 }
 .ContenedoresDeMensajes {
-    max-width: 400px;
     transition: 0s;
     width: 100%;
-    height: 10%;
+    height: 50px;
+    max-height: 80px;
     border-radius: 15px 15px 15px 15px;
     background: white;
     border-bottom: 1px solid black;
@@ -111,6 +112,7 @@ hr {
 }
 #AgregarUsuario {
     transition: 1s;
+    box-shadow: inset 0px 0px 20px 5px #65f24b;
     position: absolute;
     top: calc(92% - 30px);
     width: 80px;
@@ -150,6 +152,8 @@ hr {
     background: white;
 }
 .Usuario1 {
+    padding: 5px;
+    max-width: 350px;
     background: #8aff88;
     width: max-content;
     border-radius: 15px 15px 15px 15px;
@@ -169,6 +173,8 @@ hr {
     transform: scale(1.025);
 }
 .Usuario2 {
+    padding: 5px;
+    max-width: 350px;
     background: #41f6ff;
     width: max-content;
     border-radius: 15px 15px 15px 15px;
@@ -199,14 +205,22 @@ hr {
     font-size: 30px;
 }
 #enviar {
+    transition: transform 1s;
     width: 80px;
     background: #8aff88;
     border-radius: 20px;
 }
+#enviar:hover {
+    transform: scale(1.1);
+}
 #enviarArchivo {
+    transition: transform 1s;
     width: 80px;
     background: #8aff88;
     border-radius: 20px;
+}
+#enviarArchivo:hover {
+    transform: scale(1.1);
 }
 #InformacionDelPerfil {
     visibility: hidden;
@@ -342,13 +356,80 @@ background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/s
 #EliminarSiONo font {
     font-size: 20px;
 }
-#EliminarSiONo button {
-    background: #ff1b1b;
-    font-size: 20px;
+#EliminarAceptar {
+    transition: transform 1s;
     border: none;
-    border-radius: 15px;
-    cursor: pointer;
+    background: #4eff3fad;
+    box-shadow: 0px 0px 9px 0px #89ff7e;
+    width: 100px;
+    height: 30px;
+}
+#EliminarRechazar {
+    transition: transform 1s;
+    border: none;
+    background: #ff3f3fad;
+    box-shadow: 0px 0px 9px 0px #ff7d7d;
+    width: 100px;
+    height: 30px;
 }
 #EliminarSiONo button:hover {
     transform: scale(1.1);
+}
+.more {
+    visibility: visible;
+}
+#EliminarSiONoChat {
+    visibility: hidden;
+    position: fixed;
+    top: calc(50% - 100px/2);
+    left: calc(50% - 300px/2);
+    width: 300px;
+    height: 100px;
+    background: white;
+    border-radius: 15px;
+    padding: 10px;
+    box-shadow: 9px 6px 20px 0px #131313b5;
+}
+#EliminarAceptar1 {
+    transition: transform 1s;
+    border: none;
+    background: #4eff3fad;
+    box-shadow: 0px 0px 9px 0px #89ff7e;
+    width: 100px;
+    height: 30px;
+}
+#EliminarRechazar1 {
+    transition: transform 1s;
+    border: none;
+    background: #ff3f3fad;
+    box-shadow: 0px 0px 9px 0px #ff7d7d;
+    width: 100px;
+    height: 30px;
+}
+#EliminarAceptar1:hover,#EliminarRechazar1:hover {
+    transform: scale(1.1);
+}
+#Cargando {
+    transition: background 1s;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background: white;
+}
+#CargandoPonerLogo {
+    transition: transform 1s;
+    position: fixed;
+    top: calc(50% - 400px/2);
+    left: calc(50% - 400px/2);
+    width: 400px;
+    height: 400px;
+}
+button {
+    cursor: pointer;
+    border-radius: 15px;
+    border: none;
+    background: white;
+    box-shadow: inset 0px 0px 9px 0px #aaaaaa;
 }

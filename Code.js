@@ -1,4 +1,4 @@
-    var config = {
+var config = {
       apiKey: "AIzaSyB50DbfRdQ3Jw9XKuShlyXMbiiGLTkoRZA",
       authDomain: "mensajeria-3b8b4.firebaseapp.com",
       databaseURL: "https://mensajeria-3b8b4-default-rtdb.firebaseio.com/",
@@ -6,12 +6,12 @@
       messagingSenderId: "G-2QFL6Z2FL0"
     };
     firebase.initializeApp(config);
-    let Saber;let array;let Recivido;let i = 1;let addEnvio;let NameUser = "";let ActualizarReg;let Hours;/*dato curioso sabemos quien mando el mensaje con Hours[1]*/let Estatus = "";let Actualizar;let addFotos;let AbrirCerrar = 0;let AbrirCerrar1 = 0;let xF = 0;let EnviarDatos;let ActualizadorAnterior;
+    let Saber;let array;let Recivido;let i = 1;let addEnvio;let NameUser = "";let ActualizarReg;let Hours;/*dato curioso sabemos quien mando el mensaje con Hours[1]*/let Estatus = "";let Actualizar;let addFotos;let AbrirCerrar = 0;let AbrirCerrar1 = 0;let xF = 0;let EnviarDatos;let ia = 0;let PantallaDeCargaInclementada = "true";
     var dbRef = firebase.database().ref().child("Informacion");
     dbRef.on('value', snap => Seguridad = snap.val().Information);
+    dbRef.on('value', snap => addEnvio = snap.val().Mensaje);
     document.oncontextmenu = function(){return false}
     Comenzar = a =>{
-    dbRef.on('value', snap => addEnvio = snap.val().Mensaje);
     dbRef.on('value', snap => addFotos = snap.val().LinkDeFotos);
 //solucitar informacion necesaria para enviar un mensaje    
     document.getElementById("enviar").addEventListener("click", function(){
@@ -25,7 +25,6 @@
         location.reload();
     })
 //Agregar Usuario
-
     document.getElementById("AgregarUsuario").addEventListener("click", function(){
         Estatus = prompt("Nombre al usuario que quieres escribirle");
         Seguridad = Seguridad.split(Estatus+":")
@@ -44,7 +43,7 @@
     Envio = (X, Y) => {
         Hora =  new Date;
         Hora = ""+Hora.getDay()+":"+Hora.getHours()+":"+Hora.getMinutes()+"";
-        if (addEnvio !== undefined){
+        if ((addEnvio !== undefined)&&(X !== null)&&(Y !== "")&&(Y !== " ")){
             var Envio ={
                     Mensaje: addEnvio+"["+X+":"+Y+"*%&^"+Hora+"(%$(&^"+NameUser+""+"]",
             }
@@ -67,13 +66,15 @@ Echo = a =>{
     }else {
     document.getElementsByClassName("ParteDeEnvio").item(0).style = "visibility: visible;"
     }
-    for(i=1;i<100;i++){
+    for(i=1;i<10000;i++){
         a1 = addEnvio.split("[");
-        a1 = a1[i].split("]");
-        a2 = a1[0].split("(%$(&^");
-        a3 = a2[0].split("*%&^");
-        a4 = a3[0].split(":");
-        a5 = a3[0].split(a4[0]+":");
+            a1 = a1[i].split("]");
+            a2 = a1[0].split("(%$(&^");
+            a3 = a2[0].split("*%&^");
+            a4 = a3[0].split(":");
+            a5 = a3[0].split(a4[0]+":");
+            console.clear();
+            console.warn("Messenger Priv - 2020. V1.3");
         if(a2[1] == NameUser){
         Notificaciones(a4[0], a5[1], 0);
         }else {    }
@@ -91,20 +92,25 @@ Echo = a =>{
                         if(SeparadorDeMensajesMios[1] == NameUser){
                             SeparadorDeMensajesMios = SeparadorDeMensajesMios[0].split("*%&^");
                             PreguntarSiEsUnArchivo = SeparadorDeMensajesMios[0].split("*#&$^^");
+                            Hours = SeparadorDeMensajesMios[1].split("*%&^");
+                            Hours = Hours[0].split("(%$(&^");
                             if(PreguntarSiEsUnArchivo[1]==undefined){
     EnviarDatos = '['+Estatus+':'+SeparadorDeMensajesMios[0]+'*%&^'+SeparadorDeMensajesMios[1]+'(%$(&^'+NameUser+']';
                                 document.getElementById("MensajesLlegados").innerHTML += "<div class='Usuario1' onmousedown='EliminarMensaje();"+"informacion="+"`"+(EnviarDatos)+"`"+"'>"+"&nbsp;&nbsp;&nbsp;<font id='trans'></font>&nbsp;<font class='Hora'>"+SeparadorDeMensajesMios[1]+"&nbsp;&nbsp;&nbsp;"+"</font></div><br>";
                                 document.getElementById("trans").innerText = ""+SeparadorDeMensajesMios[0]+"";
-
                                 document.getElementById("trans").id='MD';
                             }else if(PreguntarSiEsUnArchivo[1]!==undefined){
                                 LinkDeArchivoDeEnvio = SeparadorDeMensajesMios[0].split("*#&$^^");
                                 SaberQueTipoDeArchivoEs1 = LinkDeArchivoDeEnvio[1].split(".png");
                                 SaberQueTipoDeArchivoEsJpg1 = LinkDeArchivoDeEnvio[1].split(".jpg");
+                                SaberQueTipoDeArchivoEsMp4 = LinkDeArchivoDeEnvio[1].split(".mp4");
                                 if((SaberQueTipoDeArchivoEs1[1]!==undefined)||(SaberQueTipoDeArchivoEsJpg1[1]!==undefined)){
     EnviarDatos = '['+Estatus+':*#&$^^'+LinkDeArchivoDeEnvio[1]+'*%&^'+SeparadorDeMensajesMios[1]+'(%$(&^'+NameUser+']';
                                 document.getElementById("MensajesLlegados").innerHTML += "<div class='Usuario1IMG' onmousedown='EliminarMensaje();"+"informacion="+"`"+(EnviarDatos)+"`"+"'><br>&nbsp;&nbsp;&nbsp;<a href='"+LinkDeArchivoDeEnvio[1]+"' target='_blank'><IMG src='"+LinkDeArchivoDeEnvio[1]+"' class='ImagenesEnviadas'></IMG></a><br>&nbsp;&nbsp;&nbsp;&nbsp;<font class='Hora'>"+Hours[0]+"&nbsp;&nbsp;&nbsp;"+"</font></div><br>";
-                                }else{
+                                }else if(SaberQueTipoDeArchivoEsMp4[1]!==undefined){
+    EnviarDatos = '['+Estatus+':*#&$^^'+LinkDeArchivoDeEnvio[1]+'*%&^'+SeparadorDeMensajesMios[1]+'(%$(&^'+NameUser+']';
+                                document.getElementById("MensajesLlegados").innerHTML += "<div class='Usuario1IMG' dblclick='EliminarMensaje();"+"informacion="+"`"+(EnviarDatos)+"`"+"'><br>&nbsp;&nbsp;&nbsp;<video src='"+LinkDeArchivoDeEnvio[1]+"' class='ImagenesEnviadas' controls></video><br>&nbsp;&nbsp;&nbsp;&nbsp;<font class='Hora'>"+Hours[0]+"&nbsp;&nbsp;&nbsp;"+"</font></div><br>";
+                                }else {
     EnviarDatos = '['+Estatus+':*#&$^^'+LinkDeArchivoDeEnvio[1]+'*%&^'+SeparadorDeMensajesMios[1]+'(%$(&^'+NameUser+']';
                                 document.getElementById("MensajesLlegados").innerHTML += "<div class='Usuario1' onmousedown='EliminarMensaje();"+"informacion="+"`"+(EnviarDatos)+"`"+"'>&nbsp;&nbsp;&nbsp;<a href='"+LinkDeArchivoDeEnvio[1]+"' target='_blank'><button>Archivo</button></a>&nbsp;<font class='Hora'>"+SeparadorDeMensajesMios[1]+"&nbsp;&nbsp;&nbsp;"+"</font></div><br>"
                             }
@@ -135,8 +141,11 @@ Echo = a =>{
                                 LinkDeArchivoDeEnvio1 = SeparadorDeMensajes[0].split("*#&$^^");
                                 SaberQueTipoDeArchivoEs = LinkDeArchivoDeEnvio1[1].split(".png");
                                 SaberQueTipoDeArchivoEsJpg = LinkDeArchivoDeEnvio1[1].split(".jpg");
+                                    SaberQueTipoDeArchivoEsMp41 = LinkDeArchivoDeEnvio1[1].split(".mp4");
                                 if((SaberQueTipoDeArchivoEs[1]!==undefined)||(SaberQueTipoDeArchivoEsJpg[1]!==undefined)){
                                     document.getElementById("MensajesLlegados").innerHTML += "<div class='Usuario2IMG'><br>&nbsp;&nbsp;&nbsp;<a href='"+LinkDeArchivoDeEnvio1[1]+"' target='_blank'><IMG src='"+LinkDeArchivoDeEnvio1[1]+"' class='ImagenesEnviadas'></IMG></a><br>&nbsp;&nbsp;&nbsp;&nbsp;<font class='Hora'>"+Hours[0]+"&nbsp;&nbsp;&nbsp;"+"</font></div><br>";
+                                }else if(SaberQueTipoDeArchivoEsMp41[1]!==undefined){
+                                document.getElementById("MensajesLlegados").innerHTML += "<div class='Usuario2IMG'><br>&nbsp;&nbsp;&nbsp;<video src='"+LinkDeArchivoDeEnvio1[1]+"' class='ImagenesEnviadas' controls></video><br>&nbsp;&nbsp;&nbsp;&nbsp;<font class='Hora'>"+Hours[0]+"&nbsp;&nbsp;&nbsp;"+"</font></div><br>";
                                 }else{
                                     document.getElementById("MensajesLlegados").innerHTML += "<div class='Usuario2'>"+"&nbsp;&nbsp;&nbsp;<a href='"+LinkDeArchivoDeEnvio1[1]+"' target='_blank'><button>Archivo</button></a>&nbsp;<font class='Hora'>"+Hours[0]+"&nbsp;&nbsp;&nbsp;"+"</font></div><br>";
                                 }
@@ -168,42 +177,101 @@ Notificaciones = (x,y,z) =>{
     }else{
         console.log("Error 005")
     }
-    if (document.getElementById(x) !== null){
-                if (Preg1[1] == undefined){
-                    document.getElementById(x+"Mensaje").innerHTML = z+""+y+"";
-                    ObtenerFotoDePerfil = document.getElementById(x).innerHTML
-                    ObtenerFotoDePerfil = ObtenerFotoDePerfil.split('src="');
-                    ObtenerFotoDePerfil = ObtenerFotoDePerfil[1].split('"');
-                    document.getElementById("MensajesNuevos").innerHTML =  "<div class='ContenedoresDeMensajes' id='"+x+"' onclick=Actualizar('"+(x)+"')><IMG class='fotos' src='"+ObtenerFotoDePerfil[0]+"'></IMG><center><font>"+x+"</font><br><font id='"+x+"Mensaje'>"+z+""+y+"</font></center></div>"
-                }else if (Preg1[1] !== undefined){
-                    document.getElementById(x+"Mensaje").innerHTML = ""+z+" Un archivo";
-           }
-    }else{
-        Imagenes = addFotos.split(x+":");
-            if(Imagenes[1] !== undefined){
-                Imagenes = Imagenes[1].split("||");
-                colocarIMG = LaImagenEs(x)
-                if(colocarIMG.split("||")[1] !== undefined){
-                    colocarIMG = colocarIMG.split("||");
-                    colocarIMG = colocarIMG[0];
-                }else {    }
-                if (Preg1[1] == undefined){
-                    document.getElementById("Contactos").innerHTML = "<div class='ContenedoresDeMensajes' id='"+x+"' onclick=Actualizar('"+(x)+"')><IMG class='fotos' src='"+colocarIMG+"'></IMG><center><font>"+x+"</font><br><font id='"+x+"Mensaje'>"+z+""+y+"</font></center></div><hr>"+document.getElementById("Contactos").innerHTML;
-                }else if (Preg1[1] == undefined){
-                    document.getElementById("Contactos").innerHTML = "<div class='ContenedoresDeMensajes' id='"+x+"' onclick=Actualizar('"+(x)+"')><IMG class='fotos' src='"+colocarIMG+"'></IMG><center><font>"+x+"</font><br><font id='"+x+"Mensaje'>"+z+" Un archivo</font></center></div><hr>"+document.getElementById("Contactos").innerHTML;
-                }
-            }else{
-                if (Preg1[1] == undefined){
-                    document.getElementById("Contactos").innerHTML = "<div class='ContenedoresDeMensajes' id='"+x+"' onclick=Actualizar('"+(x)+"')><IMG class='fotos' src='ContactoSinFotoDePerfil.png'></IMG><center><font>"+x+"</font><br><font id='"+x+"Mensaje'>"+z+""+y+"</font></center></div><hr>"+document.getElementById("Contactos").innerHTML;
-                }else if (Preg1[1] == undefined){
-                    document.getElementById("Contactos").innerHTML = "<div class='ContenedoresDeMensajes' id='"+x+"' onclick=Actualizar('"+(x)+"')><IMG class='fotos' src='"+colocarIMG+"'></IMG><center><font>"+x+"</font><br><font id='"+x+"Mensaje'>"+z+"Un archivo</font></center></div><hr>"+document.getElementById("Contactos").innerHTML;
-                }
+    if(x !== "null"){
+        if (document.getElementById(x) !== null){
+                    if (Preg1[1] == undefined){
+                        document.getElementById(x+"Mensaje").innerHTML = z+""+y+"";
+                        ObtenerFotoDePerfil = document.getElementById(x).innerHTML
+                        ObtenerFotoDePerfil = ObtenerFotoDePerfil.split('src="');
+                        ObtenerFotoDePerfil = ObtenerFotoDePerfil[1].split('"');
+                        document.getElementById("MensajesNuevos").innerHTML =  "<div class='ContenedoresDeMensajes' id='"+x+"' onclick=Actualizar('"+(x)+"')><IMG class='fotos' src='"+ObtenerFotoDePerfil[0]+"'></IMG><IMG src='Img/more-vertical.svg' width='30' style='position: fixed;left: 90%;'></IMG><center><font>"+x+"</font><br><font id='"+x+"Mensaje'>"+z+""+y+"</font></center></div>"
+                    }else if (Preg1[1] !== undefined){
+                        document.getElementById(x+"Mensaje").innerHTML = ""+z+" Un archivo";
+               }
+        }else{
+            Imagenes = addFotos.split(x+":");
+                if(Imagenes[1] !== undefined){
+                    Imagenes = Imagenes[1].split("||");
+                    colocarIMG = LaImagenEs(x)
+                    if(colocarIMG.split("||")[1] !== undefined){
+                        colocarIMG = colocarIMG.split("||");
+                        colocarIMG = colocarIMG[0];
+                    }else {    }
+                    if (Preg1[1] == undefined){
+                        document.getElementById("Contactos").innerHTML = "<div class='ContenedoresDeMensajes' id='"+x+"' onclick=Actualizar('"+(x)+"')><table><tr><td style='width: 100%;'><IMG class='fotos' src='"+colocarIMG+"'><center><font>"+x+"</font><br><font id='"+x+"Mensaje'>"+z+""+y+"</font></center></td><td style='display: block;'></IMG><IMG src='Img/more-vertical.svg' width='30' class='more' onclick=SeguroQueQuieresEliminarElChat('"+(x)+"')></IMG></td></tr></table></div><hr>"+document.getElementById("Contactos").innerHTML;
+                    }else if (Preg1[1] == undefined){
+                        document.getElementById("Contactos").innerHTML = "<div class='ContenedoresDeMensajes' id='"+x+"' onclick=Actualizar('"+(x)+"') ><table><tr><td style='width: 100%;'><IMG class='fotos' src='"+colocarIMG+"'></IMG><IMG src='Img/more-vertical.svg' width='30' class='more' onclick=SeguroQueQuieresEliminarElChat('"+(x)+"')></IMG><center><font>"+x+"</font><br><font id='"+x+"Mensaje'>"+z+" Un archivo</font></center></td><td style='display: block;'></IMG><IMG src='Img/more-vertical.svg' width='30' class='more' onclick=SeguroQueQuieresEliminarElChat('"+(x)+"')></IMG></td></tr></table></div><hr>"+document.getElementById("Contactos").innerHTML;
+                    }
+                }else{
+                    if (Preg1[1] == undefined){
+                        document.getElementById("Contactos").innerHTML = "<div class='ContenedoresDeMensajes' id='"+x+"' onclick=Actualizar('"+(x)+"') ><table><tr><td style='width: 100%;'><IMG class='fotos' src='Img/ContactoSinFotoDePerfil.png'></IMG><center><font>"+x+"</font><br><font id='"+x+"Mensaje'>"+z+""+y+"</font></center></td><td style='display: block;'></IMG><IMG src='Img/more-vertical.svg' width='30' class='more' onclick=SeguroQueQuieresEliminarElChat('"+(x)+"')></IMG></td></tr></table></div><hr>"+document.getElementById("Contactos").innerHTML;
+                    }else if (Preg1[1] == undefined){
+                        document.getElementById("Contactos").innerHTML = "<div class='ContenedoresDeMensajes' id='"+x+"' onclick=Actualizar('"+(x)+"')><table><tr><td style='width: 100%;'><IMG class='fotos' src='"+colocarIMG+"'></IMG><center><font>"+x+"</font><br><font id='"+x+"Mensaje'>"+z+"Un archivo</font></center></td><td style='display: block;'></IMG><IMG src='Img/more-vertical.svg' width='30' class='more' onclick=SeguroQueQuieresEliminarElChat('"+(x)+"')></IMG></td></tr></table></div><hr>"+document.getElementById("Contactos").innerHTML;
+                    }
+            }
         }
+    }else {
+        
     }
 }
+SeguroQueQuieresEliminarElChat = a =>{
+    document.getElementById("EliminarSiONoChat").style="visibility: visible;";
+    document.getElementById("EliminarAceptar1").addEventListener("click", function(){
+        //for(i=0;1<1000;i++){
+          while(addEnvio.split("["+a)[0] !== undefined){
+            EliminarChat(a);
+          }
+        //}
+    })
+    document.getElementById("EliminarRechazar1").addEventListener("click",function (){
+        document.getElementById("EliminarSiONoChat").style="visibility: hidden;";
+    })
+}
+EliminarChat = a =>{
+    for(ia=1;ia<100;ia++){
+        //a = nombre del usuario que le llego el mensaje
+        if(addEnvio.split("["+a)[ia] !== undefined){
+        BorrarMensajes = addEnvio.split("["+a);
+        array = "["+a+BorrarMensajes[ia].split("]")[0]+"]";
+        SepararParaEleminar = addEnvio.split(array);
+                var EliminarChat ={
+                    Mensaje:SepararParaEleminar[0] + SepararParaEleminar[1]
+                }
+            dbRef.update(EliminarChat)
+        }
+        if(addEnvio.split("["+NameUser+":") !== undefined){
+        BorrarMensajes1 = addEnvio.split("["+NameUser+":");
+        array1 = "["+NameUser+":"+BorrarMensajes1[ia].split("(%$(&^"+Estatus+"]")[0]+"(%$(&^"+Estatus+"]";
+        SepararParaEleminar1 = addEnvio.split(array1);
+                var EliminarChat1 ={
+                    Mensaje: SepararParaEleminar1[0] + SepararParaEleminar1[1]
+                }
+            dbRef.update(EliminarChat1)
+        }
+        if((addEnvio.split("["+NameUser+":") !== undefined)&&(addEnvio.split("["+a)[ia])){
+            document.getElementById("EliminarSiONoChat").style="visibility: hidden;";
+            break
+        }
+        //EliminarChatEnvio(SepararParaEleminar[0], SepararParaEleminar[1]);
+            continue
+    }
+}
+EliminarChatEnvio = (a,b) =>{
+    if(b[1]!==undefined){
+        var EliminarChat ={
+            Mensaje:a + b 
+        }
+    }else{
+        var EliminarChat ={
+            Mensaje: a
+        }
+    }
+    dbRef.update(EliminarChat)
+}
+
 LaImagenEs = a =>{
     Respuesta = addFotos.split("||"+a+":");
-    for(xF=1;xF<1000;xF++){
+    for(xF=1;xF<1000000;xF++){
         if(Respuesta[xF] !== undefined){
             continue;
         }else{
@@ -219,6 +287,9 @@ Actualizar = a =>{
 }
 //Mandar a actualizar
 setInterval(function (){
+        if((addEnvio !== undefined)&&(PantallaDeCargaInclementada === "true")){
+            PantallaDeCarga();
+        }else {    }
         if(addEnvio !== ActualizarReg){
             ActualizarReg = addEnvio;
             Echo();
@@ -232,6 +303,7 @@ setInterval(function (){
         if(AbrirCerrar == 0){
         document.getElementById("InformacionDelPerfil").style = "visibility: visible;"
         document.getElementById("Preferencia").style = "visibility: visible;position: relative;"
+        document.getElementById("MetodoURL").style = "visibility: hidden;"
         AbrirCerrar = 1;
         }else if(AbrirCerrar == 1){
         document.getElementById("Preferencia").style = "visibility: hidden;"
@@ -245,8 +317,17 @@ setInterval(function (){
     })
     document.getElementById("FotoDePerfilListo").addEventListener("click", function(){
         Link = document.getElementById("FotoDePerfil").value;
-        document.getElementById("InformacionDelPerfil").style = "visibility: hidden;"
-        ActualizarFotoDePerfil(Link);
+        if(Link.split("http")[1] !== undefined){
+            document.getElementById("InformacionDelPerfil").style = "visibility: hidden;"
+            document.getElementById("MetodoURL").style = "visibility: hidden;"
+            ActualizarFotoDePerfil(Link);
+        }else {
+            Swal.fire({
+              icon: 'error',
+              title: 'Ups...',
+              text: 'Lo ciento no pusistes un link'
+            })
+        }
     })
 
 //apartado para eleguir subir foto o usar URL tambien conocido como link
@@ -280,21 +361,6 @@ document.getElementById("enviarArchivo").addEventListener("click", function() {
         console.log("Error 004");
     }
 })
-//Bienvenida al usuario
-
-document.getElementById("Name").innerHTML = "<font>Bienvenido nuevamente </font><br><font>"+NameUser+"</font>";
-
-    setTimeout(function(){
-document.getElementById("Name").style="visibility: hidden;position: absolute;"
-    }, 1000)
-    setTimeout(function(){
-document.getElementById("Bienvenida").style="visibility: hidden;position: absolute;"
-    }, 2000)
-    setTimeout(function(){
-    document.getElementsByClassName("Contenedor").item(0).style="visibility: visible;position: fixed;"
-    document.getElementById("MensajesLlegados").innerHTML += "<IMG src='send.svg' class='Logo'></IMG>";
-    }, 3000)
-
         
 ///////////////////////////////////Subir foto De perfil
 
@@ -330,8 +396,13 @@ document.getElementById("Bienvenida").style="visibility: hidden;position: absolu
 
 
           function complete() {
-            alert("Archivo Enviado con Exito!!");
+            Swal.fire({
+              icon: 'success',
+              title: 'Hey',
+              text: 'Archivo Enviado con Exito!!'
+            })            
             ActualizarFotoDePerfil(Dowloand);
+            uploader.value = 0;
           }
           )
       });
@@ -377,6 +448,7 @@ document.getElementById("Bienvenida").style="visibility: hidden;position: absolu
               text: 'Archivo Enviado con Exito!!'
             })
             Envio(Estatus, "*#&$^^"+Dowloand);
+            uploader1.value = 0;
           }
           )
       });
@@ -396,8 +468,10 @@ document.getElementById("Bienvenida").style="visibility: hidden;position: absolu
                 Intervalo = localStorage.getItem("Login").split("||");
                 PrimerDato = Intervalo[0].split(":")[0];
                 SegundoDato = Intervalo[0].split(":")[1];
-                SegundoDato = SegundoDato.split("-")
-            }else {    }
+                SegundoDato = SegundoDato.split("-");
+            }else {
+                document.getElementById("Cargando").style = "visibility: hidden;";
+            }
             }else{    }
         if(localStorage.getItem("Login") !== null){
             if((parseFloat(PrimerDato)+3 <= parseFloat(HoraDeInicioDeSeccion1.getDay())+3)&&(SegundoDato[0] == HoraDeInicioDeSeccion1.getMonth())||(SegundoDato[1] == HoraDeInicioDeSeccion1.getMonth())||(SegundoDato[2] == HoraDeInicioDeSeccion1.getMonth())){
@@ -416,6 +490,7 @@ document.getElementById("Bienvenida").style="visibility: hidden;position: absolu
                 Comenzar();
                 document.getElementById("Segundario").style="visibility: hidden;"
                 localStorage.setItem("Login", HoraDeInicioDeSeccion+"||"+a);
+                document.getElementById("Cargando").style = "visibility: visible;";
             }
         }
 
@@ -457,4 +532,24 @@ else if (/android/i.test(userAgent)) {
 else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
 	//window.location.replace("/mobile");
     alert("No hay soporte para dispositivos moviles, por los momentos");
+}
+
+function PantallaDeCarga(){
+////Cargando
+        setTimeout(function (){
+            document.getElementById("CargandoPonerLogo").style = "transform: rotateX(45deg);"
+            document.getElementById("Name").innerHTML = "<font>Bienvenido nuevamente </font><br><b><font>"+NameUser+"</font></b>";
+            setTimeout(function (){
+                document.getElementById("CargandoPonerLogo").style = "transform: rotateY(45deg);"
+                    setTimeout(function (){
+                        document.getElementById("CargandoPonerLogo").style = "transform: rotateZ(45deg);"
+                        document.getElementById("Cargando").style = "background: rgb(255,255,255, 0);"
+                        setTimeout(function (){
+                            document.getElementById("Cargando").style = "visibility: hidden;"
+                            PantallaDeCargaInclementada = "false";
+                            document.getElementsByClassName("Contenedor").item(0).style="visibility: visible;position: fixed;"
+                        }, 1000)
+                    }, 1000)
+            }, 1000)
+        }, 1000)
 }

@@ -14,7 +14,6 @@ let coincideCon;
 let addEnvio;
 let i = 0;
 let Permitir;
-("Information")
 //solucitud de registro
     dbRef.on('value', snap => addEnvio = snap.val().Information);
 
@@ -30,7 +29,11 @@ coincideCon = addEnvio.split(":");
     for(i=0; i<=100; i++){
         if (coincideCon[i] == User){
             Permitir = User;
-            Envio();
+        }
+        if(i == 100){
+        Envio();
+        }else {
+        
         }
     }
 }
