@@ -537,17 +537,19 @@ else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
 function PantallaDeCarga(){
 ////Cargando
         setTimeout(function (){
-            document.getElementById("CargandoPonerLogo").style = "transform: rotateX(45deg);"
+            document.getElementById("CargandoPonerLogo").style = "transform: rotateX(45deg);";
             document.getElementById("Name").innerHTML = "<font>Bienvenido nuevamente </font><br><b><font>"+NameUser+"</font></b>";
             setTimeout(function (){
-                document.getElementById("CargandoPonerLogo").style = "transform: rotateY(45deg);"
+                document.getElementById("CargandoPonerLogo").style = "transform: rotateY(45deg);";
                     setTimeout(function (){
-                        document.getElementById("CargandoPonerLogo").style = "transform: rotateZ(45deg);"
-                        document.getElementById("Cargando").style = "background: rgb(255,255,255, 0);"
+                        document.getElementById("CargandoPonerLogo").style = "transform: rotateZ(45deg);";
+                        document.getElementById("Cargando").style = "background: rgb(255,255,255, 0);";
                         setTimeout(function (){
-                            document.getElementById("Cargando").style = "visibility: hidden;"
                             PantallaDeCargaInclementada = "false";
-                            document.getElementsByClassName("Contenedor").item(0).style="visibility: visible;position: fixed;"
+                            document.getElementsByClassName("Contenedor").item(0).style="visibility: visible;position: fixed;";
+                            setTimeout(function (){
+                                document.getElementById("Cargando").style = "visibility: hidden;";
+                            },1000)
                         }, 1000)
                     }, 1000)
             }, 1000)
